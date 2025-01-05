@@ -4,22 +4,40 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const Navigation = () => {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
-    return(
-        <nav>
-            <Link href='/' className={pathname ==="/" ? "font-bold mr-4" : "text-blue-500 mr-4"}>
-             Home
-            </Link>
-            <Link href='/about' className={pathname ==="/about" ? "font-bold mr-4" : "text-blue-500 mr-4"}>
-             About
-            </Link>
-            <Link href='/products/1' className={pathname ==="/products/1" ? "font-bold mr-4" : "text-blue-500 mr-4"}>
-             Products
-            </Link>
-            <Link href='/login' className={pathname ==="/login" ? "font-bold mr-4" : "text-blue-500 mr-4"}>
-             Login
-            </Link>
-        </nav>
-    )
-}
+  return (
+    <nav>
+      <Link
+        href="/"
+        className={pathname === "/" ? "font-bold mr-4" : "text-blue-500 mr-4"}
+      >
+        Home
+      </Link>
+      <Link
+        href="/about"
+        className={
+          pathname === "/about" ? "font-bold mr-4" : "text-blue-500 mr-4"
+        }
+      >
+        About
+      </Link>
+      <Link
+        href="/products/1"
+        className={
+          pathname === "/products/1" ? "font-bold mr-4" : "text-blue-500 mr-4"
+        }
+      >
+        Products
+      </Link>
+      <Link
+        href="/login"
+        className={
+          pathname === "/login" ? "font-bold mr-4" : "text-blue-500 mr-4"
+        }
+      >
+        Login/Register
+      </Link>
+    </nav>
+  );
+};
