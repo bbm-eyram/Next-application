@@ -1,6 +1,6 @@
 import EmailTemplate from "@/app/components/Email/forgot-template";
 import { BASE_URL } from "@/app/contants";
-import { connectToDatabase } from "@/lib/mongodb";
+import connectToDatabase from "@/lib/mongodb";
 import ForgotPasswordToken from "@/app/models/ForgotPasswordToken";
 import User from "@/models/user";
 import { NextResponse } from "next/server";
@@ -10,7 +10,7 @@ import { Resend } from 'resend';
 export async function POST(req: Request) {
     try {
         // connect to DB
-        connectToMongoDB().catch(err => NextResponse.json(err))
+        connectToDatabase().catch(err => NextResponse.json(err))
 
         // find the user with email
         const { email } = await req.json()
