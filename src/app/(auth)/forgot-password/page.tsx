@@ -1,5 +1,8 @@
 // pages/forgot-password.js
-import React from "react";
+"use client"
+
+import React, { useState } from 'react'
+import Link from 'next/link'
 
 export default function ForgotPassword() {
 
@@ -37,11 +40,12 @@ export default function ForgotPassword() {
           </button>
         </form>
         <div className="text-center mt-4">
-          <a href="/login" className="text-sm text-blue-500 hover:underline">
+          <Link href="/login" className="text-sm text-blue-500 hover:underline">
             Back to Login
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   );
 }
+
