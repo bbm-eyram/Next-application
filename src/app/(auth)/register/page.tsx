@@ -54,8 +54,8 @@ const SignUp = () => {
     signIn(value, { callbackUrl: "/" });
   };
   return (
-    <div className="h-full flex items-center justify-center bg-[#1b0918]">
-      <div className="md:h-auto w-[80%] sm:w-[420px] p-4 sm:p-8 bg-white m-5">
+    <div className="h-full flex items-center justify-center bg-gray-500">
+      <div className="md:h-auto w-[80%] sm:w-[420px] p-4 sm:p-8 bg-white m-5 rounded-lg">
         <div>
           <h1 className=" text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign up</h1>
           <p className="text-sm text-center text-accent-foreground mb-2">
@@ -77,7 +77,7 @@ const SignUp = () => {
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2"
+              className="block w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
             <input
               type="email"
@@ -86,7 +86,7 @@ const SignUp = () => {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2"
+              className="block w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
             <input
               type="Password"
@@ -95,7 +95,7 @@ const SignUp = () => {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2"
+              className="block w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
             <input
               type="password"
@@ -106,7 +106,7 @@ const SignUp = () => {
                 setForm({ ...form, confirmPassword: e.target.value })
               }
               required
-              className="block w-full rounded-md border-0 py-1.5 text-pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2"
+              className="block w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
             <button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={pending}>
               continue
