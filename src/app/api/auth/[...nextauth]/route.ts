@@ -6,6 +6,13 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import Github from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
+// Type definition for GitHub profile
+interface GithubProfile {
+  login: string;
+  email: string;
+  name: string;
+}
+
 const handler = NextAuth({
   session: {
     strategy: "jwt",
@@ -51,19 +58,19 @@ const handler = NextAuth({
         await connectToDatabase();
         const existingUser = await User.findOne({ email: profile?.email });
 
-        // Handle logic based on provider (GitHub vs Google)
-        if (!existingUser) {
-          let defaultName = "Anonymous"; // Default fallback name
-          
-          // Check provider type to access correct profile field
-          if (account?.provider === "github") {
-            // For GitHub, use profile.login
-            defaultName = profile?.login || profile?.email.split('@')[0] || "Anonymous";
-          } else if (account?.provider === "google") {
-            // For Google, use profile.name or fallback to email part
-            defaultName = profile?.name || profile?.email.split('@')[0] || "Anonymous";
-          }
+        let defaultName = "Anonymous"; // Default fallback name
+        
+        // Check if the account is from GitHub
+        if (account?.provider === "github" && profile) {
+          // Explicitly cast profile to GithubProfile type
+          const githubProfile = profile as GithubProfile;
+          defaultName = githubProfile?.login || githubProfile?.email.split('@')[0] || "Anonymous";
+        } else if (account?.provider === "google" && profile) {
+          // For Google, use profile.name or fallback to email part
+          defaultName = profile?.name || profile?.email.split('@')[0] || "Anonymous";
+        }
 
+        if (!existingUser) {
           await User.create({
             name: profile?.name || defaultName,
             email: profile?.email,
