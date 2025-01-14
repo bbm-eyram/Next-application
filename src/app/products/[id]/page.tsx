@@ -1,9 +1,12 @@
 import React from 'react';
 
 export default function Product({ params }: { params: { id: string } }) {
-  const { id } = params; // No need to await params since it's not a Promise
+  const { id } = params;
 
   return (
-    <div>Product: {id}</div>
+    <div>
+      <h1>Product ID: {id}</h1>
+    </div>
   );
 }
+
