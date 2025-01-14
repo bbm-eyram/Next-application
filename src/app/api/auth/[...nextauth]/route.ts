@@ -59,7 +59,7 @@ const handler = NextAuth({
         const existingUser = await User.findOne({ email: profile?.email });
 
         let defaultName = "Anonymous"; // Default fallback name
-        
+
         // Check if the account is from GitHub
         if (account?.provider === "github" && profile) {
           // Explicitly cast profile to GithubProfile type
@@ -67,7 +67,8 @@ const handler = NextAuth({
           defaultName = githubProfile?.login || githubProfile?.email.split('@')[0] || "Anonymous";
         } else if (account?.provider === "google" && profile) {
           // For Google, use profile.name or fallback to email part
-          defaultName = profile?.name || profile?.email.split('@')[0] || "Anonymous";
+          // Check if email exists before trying to split it
+          defaultName = profile?.name || (profile?.email ? profile.email.split('@')[0] : "Anonymous") || "Anonymous";
         }
 
         if (!existingUser) {
