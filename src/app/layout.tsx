@@ -33,7 +33,7 @@ export default function RootLayout({
           {/* <p>You are welcome...</p> */}
           <Navigation />
         </header>
-        <Toaster position="top-right" richColors />
+        <Toaster position="bottom-right" richColors />
         {children}
         <footer className="bg-slate-900 text-white p-4 text-center">
           <p>Coding..</p>

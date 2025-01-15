@@ -7,6 +7,6 @@ export const Counter = () => {
     const [count, setCount] = useState(0);
 
     return(
-        <button onClick={() => setCount(count + 1)}>Click {count} times</button>
+        <button className="bg-gray-900 text-white px-2 py-1 rounded-lg" onClick={() => setCount(count + 1)}>Click {count} times</button>
     );
 }

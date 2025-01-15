@@ -22,14 +22,14 @@ export const Navigation = () => {
       >
         About
       </Link>
-      <Link
+      {/* <Link
         href="/products/1"
         className={
           pathname === "/products/1" ? "font-bold mr-4" : "text-blue-500 mr-4"
         }
       >
         Products
-      </Link>
+      </Link> */}
       <Link
         href="/login"
         className={
